@@ -1,14 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-let users = [
-    { id: 1, nama: "Nadiv", email: "umarnadiv@gmail.com" },
-    { id: 2, nama: "Omar", email: "omar@gmail.com" },
-]
-
-const usercontroller = require('../controllers/user')
+const usercontroller = require('../controllers/users')
 
 router.get('/users', usercontroller.index)
+
+router.get('/user/:id', usercontroller.show)
 
 router.post('/user', usercontroller.store)
 
