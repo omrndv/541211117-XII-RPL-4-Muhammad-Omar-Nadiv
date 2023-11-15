@@ -5,20 +5,20 @@ module.exports = {
     index: async (req, res) => {
         try {
             const users = await User.find()
-            if (users.length > 0) {
-                res.status(200).json({
-                    status: true,
-                    data: users,
-                    method: req.method,
-                    url: req.url
-                })
-            } else {
-                res.json({
-                    status: false,
-                    message: "Data Masih Kosong"
-                })
-            }
-
+            res.json(users)
+            // if (users.length > 0) {
+            //     res.status(200).json({
+            //         status: true,
+            //         data: users,
+            //         method: req.method,
+            //         url: req.url
+            //     })
+            // } else {
+            //     res.json({
+            //         status: false,
+            //         message: "Data Masih Kosong"
+            //     })
+            // }
         } catch (error) {
             res.status(400).json({ success: false })
         }
